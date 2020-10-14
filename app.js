@@ -5,14 +5,21 @@ while (texto.length > 70) {
 }
 
 console.log('Largo total (contando espacios en blanco): ' + texto.length);
+console.log('Largo total (sin contar espacio en blanco): ' + contarLargoSinEspacios(texto));
 
 
-contador = 0;
-for(let i = 0; i < texto.length; i++) {
-    if (texto[i] !== " ") {
-        contador++;
+
+function contarLargoSinEspacios(texto){
+    if(texto === undefined) {
+        console.log("No se ingreso un texto")
+        return;
     }
+    let contador = 0;
+    for(let i = 0; i < texto.length; i++) {
+        if (texto[i] !== " ") {
+            contador++;
+        }
+    }
+    return contador
 }
 
-
-console.log('Largo total (sin contar espacio en blanco): ' + contador);
