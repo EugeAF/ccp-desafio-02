@@ -6,7 +6,8 @@ while (texto.length > 70) {
 
 console.log('Largo total (contando espacios en blanco): ' + texto.length);
 console.log('Largo total (sin contar espacio en blanco): ' + contarLargoSinEspacios(texto));
-
+console.log('Cantidad total de palabras: ' + contarPalabras(texto)) 
+console.log('Se repiten palabras: ' + (hayPalabrasReperidas(texto)? 'Si':'No'))
 
 
 function contarLargoSinEspacios(texto){
@@ -21,5 +22,27 @@ function contarLargoSinEspacios(texto){
         }
     }
     return contador
+}
+
+function contarPalabras(texto){
+    if(texto === undefined) {
+        console.log("No se ingreso un texto")
+        return;
+    }
+    return texto.split(' ').length
+}
+
+function hayPalabrasReperidas(texto) {
+    let textoComoArreglo = texto.split(' ')
+    for(let i = 0; i < textoComoArreglo.length; i++){
+        let palabraActual = textoComoArreglo[i]
+        for(let j = 0; j < textoComoArreglo.length; j++) {
+            let palabraActualInterna = textoComoArreglo[j]
+            if(palabraActual == palabraActualInterna && i != j ){
+                return true
+            }
+        }
+    }
+    return false
 }
 
